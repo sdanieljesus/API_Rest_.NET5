@@ -1,12 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace FilmesAPI.Models
+namespace FilmesAPI.Data.DTO.Endereco
 {
-    public class Endereco
+    using System.ComponentModel.DataAnnotations;
+
+    public class ReadEnderecoDto
     {
         [Key]
         [Required]
         public int Id { get; set; }
+        
+        
 
         [Required]
         public string Logradouro { get; set; }
@@ -16,9 +18,5 @@ namespace FilmesAPI.Models
         
         [Required]
         public int Numero { get; set; }
-        
-        
-        
-        
     }
 }

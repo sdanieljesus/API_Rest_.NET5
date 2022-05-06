@@ -15,10 +15,10 @@ namespace FilmesAPI.Controllers
     [Produces("application/json")]
     public class FilmeController : ControllerBase
     {
-        private FilmeContext _context;
+        private AppDbContext _context;
         private IMapper _mapper;
 
-        public FilmeController(FilmeContext context, IMapper mapper)
+        public FilmeController(AppDbContext context, IMapper mapper)
         {
             _context = context; 
             _mapper = mapper;

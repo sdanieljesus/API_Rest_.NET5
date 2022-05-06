@@ -12,8 +12,6 @@ namespace FilmesAPI.Models
         [Required]
         public string Nome { get; set; }
         
-        
-        
     }
     
 }
