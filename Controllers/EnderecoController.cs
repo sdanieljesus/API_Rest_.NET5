@@ -6,7 +6,7 @@ namespace FilmesAPI.Controllers
     using FilmesAPI.Data;
     using AutoMapper;
     using FilmesAPI.Models;
-    using FilmesAPI.Data.DTO.Endereco;
+    using FilmesAPI.Data.DTO.EnderecoDto;
     using System.Linq;
     using System.Collections.Generic;
 

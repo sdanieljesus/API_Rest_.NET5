@@ -1,4 +1,4 @@
-namespace FilmesAPI.Data.DTO.Endereco
+namespace FilmesAPI.Data.DTO.EnderecoDto
 {
     using System.ComponentModel.DataAnnotations;
 
