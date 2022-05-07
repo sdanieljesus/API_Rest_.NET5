@@ -9,8 +9,17 @@ namespace FilmesAPI.Models
         [Required]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Campo obrigatório")]
         public string Nome { get; set; }
+
+        [Required]
+        public Endereco Endereco { get; set; }
+
+        public int EnderecoId { get; set; }
+        
+        
+        
+        
         
     }
     

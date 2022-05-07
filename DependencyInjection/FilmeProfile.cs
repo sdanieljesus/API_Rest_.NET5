@@ -4,9 +4,9 @@ using FilmesAPI.Models;
 
 namespace FilmesAPI.DependencyInjection
 {
-    public class FilmeDependencyInjection : Profile
+    public class FilmeProfile : Profile
     {
-        public FilmeDependencyInjection()
+        public FilmeProfile()
         {
             CreateMap<CreateFilmeDto, Filme>();
             CreateMap<Filme, ReadFilmeDto>();
