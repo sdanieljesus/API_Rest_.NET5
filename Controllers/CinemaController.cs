@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using FilmesAPI.Data.DTO.Cinema;
 using FilmesAPI.Models;
+using FilmesAPI.Data.DTO.CinemaDto;
 
 
 namespace FilmesAPI.Controllers
@@ -16,7 +15,7 @@ namespace FilmesAPI.Controllers
     {
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Cinema))]
-        public IActionResult Get()
+        public IActionResult CreateCinema([FromBody] CreateCinemaDto cinemaDto)
         {
             
             return Ok();

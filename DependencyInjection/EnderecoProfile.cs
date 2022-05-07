@@ -1,6 +1,6 @@
 using AutoMapper;
-using FilmesAPI.Data.DTO.Endereco;
 using FilmesAPI.Models;
+using FilmesAPI.Data.DTO.EnderecoDto;
 
 namespace FilmesAPI.DependencyInjection
 {
