@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using FilmesAPI.Models;
 
 namespace FilmesAPI.Data.DTO.CinemaDto
 {
@@ -6,6 +7,13 @@ namespace FilmesAPI.Data.DTO.CinemaDto
     {
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Nome { get; set; }
+
+        public int EnderecoId { get; set; }
+        
+        
+        public int GerenteId { get; set; }
+        
+        
         
         
     }

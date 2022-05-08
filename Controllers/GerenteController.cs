@@ -5,6 +5,7 @@ using AutoMapper;
 using FilmesAPI.Data.DTO.GerenteDto;
 using FilmesAPI.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace FilmesAPI.Controllers
 {
@@ -30,6 +31,13 @@ namespace FilmesAPI.Controllers
             _context.Gerentes.Add(gerente);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperaGerentePorId), new { Id = gerente.Id}, gerente);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReadGerenteDto>))]
+        public IActionResult ConsultaGerentes()
+        {
+            return Ok(_context.Gerentes);
         }
 
         [HttpGet("{id}")]

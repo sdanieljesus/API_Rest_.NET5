@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using FilmesAPI.Models;
 using FilmesAPI.Data.DTO.CinemaDto;
-
+using System.Linq;
 
 namespace FilmesAPI.Controllers
 {
@@ -30,14 +30,28 @@ namespace FilmesAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Cinema))]
         public IActionResult CreateCinema([FromBody] CreateCinemaDto cinemaDto)
         {
-            
-            return Ok();
+            Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
+            _context.Cinemas.Add(cinema);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(ConsultaCinemaPorId), new { id = cinema.Id}, cinema);
         }
 
         [HttpGet]
         public IActionResult ConsultaCinemas()
         {
             return Ok(_context.Cinemas);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult ConsultaCinemaPorId(int id)
+        {
+            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            if (cinema != null)
+            {
+                ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
+                return Ok(cinemaDto);
+            }
+            return NotFound();
         }
     }
 }

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220508000205_Create database")]
-    partial class Createdatabase
+    [Migration("20220508012635_CreateMigrations")]
+    partial class CreateMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,9 +46,11 @@ namespace FilmesAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bairro")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Logradouro")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Numero")

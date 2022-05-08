@@ -3,7 +3,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace FilmesAPI.Migrations
 {
-    public partial class Createdatabase : Migration
+    public partial class CreateMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace FilmesAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Logradouro = table.Column<string>(type: "text", nullable: true),
-                    Bairro = table.Column<string>(type: "text", nullable: true),
+                    Logradouro = table.Column<string>(type: "text", nullable: false),
+                    Bairro = table.Column<string>(type: "text", nullable: false),
                     Numero = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
