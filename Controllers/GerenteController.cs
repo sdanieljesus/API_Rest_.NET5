@@ -9,7 +9,7 @@ using System.Linq;
 namespace FilmesAPI.Controllers
 {
     [ApiController]
-    [Route("[controller")]
+    [Route("[controller]")]
     [Produces("application/json")]
     public class GerenteController : ControllerBase
     {

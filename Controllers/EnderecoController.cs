@@ -13,14 +13,14 @@ namespace FilmesAPI.Controllers
     [ApiController]
     [Route("[controller]")]
     [Produces("application/json")]
-    public class NameController : ControllerBase
+    public class EnderecoController : ControllerBase
     {
         private AppDbContext _context;
         private IMapper _mapper;
 
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateEnderecoDto))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Endereco))]
         public IActionResult AdicionaEndereco([FromBody] CreateEnderecoDto enderecoDto)
         {
             Endereco endereco = _mapper.Map<Endereco>(enderecoDto);
@@ -30,18 +30,26 @@ namespace FilmesAPI.Controllers
         }
 
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReadEnderecoDto>))]
+        public IActionResult ConsultaEnderecos()
+        {
+            return Ok(_context.Enderecos);
+        }
+
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReadEnderecoDto>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReadEnderecoDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult ConsultaEnderecoPorId(int id)
         {
             Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
-            if (endereco == null)
+            if (endereco != null)
             {
-                return NotFound();
+                ReadEnderecoDto enderecoDto = _mapper.Map<ReadEnderecoDto>(endereco);
+                return Ok(enderecoDto);
             }
-            return Ok(endereco);
+            return NotFound();
         }
 
     }

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220507193639_Relacionando Cinema e Endereco")]
-    partial class RelacionandoCinemaeEndereco
+    [Migration("20220508000205_Create database")]
+    partial class Createdatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,11 +46,9 @@ namespace FilmesAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bairro")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Logradouro")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Numero")
@@ -85,6 +83,21 @@ namespace FilmesAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Filmes");
+                });
+
+            modelBuilder.Entity("FilmesAPI.Models.Gerente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Gerentes");
                 });
 
             modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>

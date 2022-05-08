@@ -8,8 +8,6 @@ namespace FilmesAPI.Data.DTO.EnderecoDto
         [Required]
         public int Id { get; set; }
         
-        
-
         [Required]
         public string Logradouro { get; set; }
         
